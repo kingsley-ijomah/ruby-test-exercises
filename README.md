@@ -30,6 +30,3 @@ Takes a time, a number of hours (num_hours) and a hash of opening hours. If I pl
 
 ### duckduckwhy
 This scrapes duckduckgo.com to get the first N results for the specified phrase, using Net::HTTP.
-
-
-These files are © Livelink Technology, 2014-2020 and are for individual applicants and Livelink only.
