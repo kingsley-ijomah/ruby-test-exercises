@@ -1,32 +1,67 @@
-# Livelink Ruby Test
+# Hamming
 
-The idea is to see how you write ruby and how you think about solving problems. The majority of these tests are real problems taken from our existing codebase. Code reuse and additional test coverage where appropriate is encouraged.
+Calculate the Hamming difference between two DNA strands.
 
-Tests are in `spec/your_ruby_spec.rb`. Run them using `bundle exec rspec` from the top level directory.
-Your solutions should go in `lib/your_ruby.rb`.
+A mutation is simply a mistake that occurs during the creation or
+copying of a nucleic acid, in particular DNA. Because nucleic acids are
+vital to cellular functions, mutations tend to cause a ripple effect
+throughout the cell. Although mutations are technically mistakes, a very
+rare mutation may equip the cell with a beneficial attribute. In fact,
+the macro effects of evolution are attributable by the accumulated
+result of beneficial microscopic mutations over many generations.
 
-## Constraints
-- Use only the core libraries, no gems (Excluding RSpec which has been included for testing)
-- All times should be in UTC
-- Code should be compatible with Ruby 2.5
+The simplest and most common type of nucleic acid mutation is a point
+mutation, which replaces one base with another at a single nucleotide.
 
-## Tasks
-Brief outline of the tasks you will need to complete
+By counting the number of differences between two homologous DNA strands
+taken from different genomes with a common ancestor, we get a measure of
+the minimum number of point mutations that could have occurred on the
+evolutionary path between the two strands.
 
-### fizzbuzz
-Takes an integer as the argument and then returns an array of results up to that number.
+This is called the 'Hamming distance'.
 
-### smallest_rectangle_of_aspect
-Takes an aspect ratio (height/width) and a rectangle (array [width, height]) and works out the smallest rectangle of that aspect ratio that contains a rectangle of those dimensions.
+It is found by comparing two DNA strands and counting how many of the
+nucleotides are different from their equivalent in the other string.
 
-### parse_time
-Takes a string in the form HH:MM and works out how many seconds into the day it is.
+    GAGCCTACTAACGGGAT
+    CATCGTAATGACGGCCT
+    ^ ^ ^  ^ ^    ^^
 
-### finish_time_for_day / start_time_for_day
-Takes a date/time object and a hash in the form `{ day => [starts, ends], ... }`, where day is the abbreviated english name for the day, starts and ends are times in the format accepted by parse_time. It returns the start/finish time as a time object for that day.
+The Hamming distance between these two DNA strands is 7.
 
-### calculate_completion_time
-Takes a time, a number of hours (num_hours) and a hash of opening hours. If I place my order at placed_at time, then this returns the earliest point at which (1) the shop is open and (2) has been open for a total of num_hours since I placed my order. So if I place my order 1 hour before closing time and it takes 2 hours to process, then this will rollover 1 hour into the next working day.
+# Implementation notes
 
-### duckduckwhy
-This scrapes duckduckgo.com to get the first N results for the specified phrase, using Net::HTTP.
+The Hamming distance is only defined for sequences of equal length, so
+an attempt to calculate it between sequences of different lengths should
+not work. The general handling of this situation (e.g., raising an
+exception vs returning a special value) may differ between languages.
+
+* * * *
+
+For installation and learning resources, refer to the
+[Ruby resources page](http://exercism.io/languages/ruby/resources).
+
+For running the tests provided, you will need the Minitest gem. Open a
+terminal window and run the following command to install minitest:
+
+    gem install minitest
+
+If you would like color output, you can `require 'minitest/pride'` in
+the test file, or note the alternative instruction, below, for running
+the test file.
+
+Run the tests from the exercise directory using the following command:
+
+    ruby hamming_test.rb
+
+To include color from the command line:
+
+    ruby -r minitest/pride hamming_test.rb
+
+
+## Source
+
+The Calculating Point Mutations problem at Rosalind [http://rosalind.info/problems/hamm/](http://rosalind.info/problems/hamm/)
+
+## Submitting Incomplete Solutions
+It's possible to submit an incomplete solution so you can see how others have completed the exercise.
